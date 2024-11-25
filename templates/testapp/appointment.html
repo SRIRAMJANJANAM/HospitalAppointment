@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appointment</title>
+    <style>
+         li{
+            display: inline-block;
+            margin-left: 3%;
+        }
+        nav a{
+            color: white;
+            text-decoration: none;
+        }
+        nav h1{
+            font-size: 230%;
+            margin-left: 3%;
+        }
+        nav{
+            text-align: center;
+            background: #333;
+            color: white;
+            font-size: 120%;
+            padding: 0.1%;
+            width: 100%;
+            margin-top: -2%;
+        }
+        body{
+            background-color: #f4f4f9;
+        }
+        form {
+            text-align: left;
+            width: 30%;
+            margin: auto;
+            background: pink;
+            padding: 2%;
+            margin-top: 5%;
+            border-radius: 20px;
+        }
+        label {
+            font-size: 105%;
+            display: flex;
+            justify-content: space-between;
+        
+        }
+        input, button {
+            margin-top: 10px;
+            border: none;
+            border-radius: 20px;
+            font-family: serif;
+            font-size: 24px;
+            text-align: center;
+        }
+        button {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background-color: green;
+            color: white;
+            font-size: 20px;
+            padding: 2%;
+        }
+        select{
+            width: 52%;
+            border-radius: 25px;
+            color: rgb(106, 0, 255);
+            font-size: 20px;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+        }
+        #lod{
+            font-size: 25px;
+            margin-top: 1%;
+            background: grey;
+            border-radius: 25px;
+            padding: 1%;
+        }
+        b{
+            color: white;
+            text-shadow: 1px 1px rgb(255, 25, 0),2px 2px rgb(255, 25, 0);
+        }
+        strong{
+            color: #222;
+            font-size: 29px;
+            margin-left: 30%;
+        }
+        #lod h1{
+            color: #015;
+            text-shadow: 1px 1px white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Welcome to Sri Ram Hospital</h1>
+            <ul>
+                <a href="/"><li>Home</li></a>
+                <a href="/services"><li>Services</li></a>
+                <a href="/doctors"><li>Doctors</li></a>
+                <a href="/about"><li>About Us</li></a>
+                <a href="/contact"><li>Contact Us</li></a>
+           </nav>
+       </header>
+       <form method="post" action="/appointment/">
+        {% csrf_token %}
+        <label for="pn">
+            Enter Patient Name:
+            <input type="text" name="pn" id="pn" required autofocus>
+        </label> <br>
+        <label for="doc">
+            Select Doctor:
+            <select name="doc" id="doc">
+                <option value="Dr.Sri Ram">Dr.Sri Ram</option>
+                <option value="Dr.Aditya">Dr.Aditya</option>
+                <option value="Dr.Yathendra">Dr.Yathendra</option>
+                <option value="Dr.Tulasi Ram">Dr.Tulasi Ram</option>
+            </select>
+        </label> <br>
+        <label for="date">
+            Appointment Date:
+            <input type="date" name="date" id="date" required>
+        </label> <br>
+        <label for="time">
+            Appointment Time:
+            <input type="time" name="time" id="time" required>
+        </label> <br>
+        <button type="submit">Book Appointment</button>
+    </form>
+    <div id="lod">
+        <h1> List of Doctors and Their Specialization</h1>
+            <strong>Dr.Sri Ram: <b>General Medicine</b></strong> <br>
+            <strong>Dr.Aditya : <b>Emergency Care</b>  </strong> <br>
+            <strong>Dr.Yathendra:  <b>Pediatrics</b>   </strong> <br>
+            <strong>Dr.Tulasi ram:   <b>Cardiology</b>  </strong>
+    </div>
+</body>
+</html>
